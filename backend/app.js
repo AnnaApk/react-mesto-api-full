@@ -8,6 +8,9 @@ const { celebrate, Joi, errors } = require('celebrate');
 const cors = require('cors');
 
 const options = [
+  'https://mesto.aaaproject15.nomoredomains.xyz',
+  'http://mesto.aaaproject15.nomoredomains.xyz',
+  'mesto.aaaproject15.nomoredomains.xyz',
   'https://localhost:3000',
   'http://localhost:3000',
   'localhost:3000',
