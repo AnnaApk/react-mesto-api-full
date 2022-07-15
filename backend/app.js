@@ -1,3 +1,7 @@
+const dotenv = require('dotenv').config();
+
+console.log(dotenv.process.env.NODE_ENV); // production
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParse = require('body-parser');

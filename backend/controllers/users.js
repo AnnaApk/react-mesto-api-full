@@ -1,4 +1,5 @@
-const SECRET_KEY = 'very_secret';
+// const SECRET_KEY = 'very_secret';
+const { NODE_ENV, JWT_SECRET } = process.env;
 const SOLT = 10;
 
 const { ObjectId } = require('mongoose').Types;
@@ -63,7 +64,7 @@ module.exports.login = (req, res, next) => {
       if (!isPasswordCorrect) {
         throw new NotAuthError('Данные не верны!');
       }
-      return jwt.sign({ _id: user._id }, SECRET_KEY, { expiresIn: '7d' });
+      return jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
     })
     .then((token) => res.send({ token }))
     .catch(next);
