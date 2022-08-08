@@ -1,6 +1,4 @@
-const dotenv = require('dotenv').config();
-
-console.log(dotenv.process.env.NODE_ENV); // production
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
