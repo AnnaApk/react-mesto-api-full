@@ -1,6 +1,5 @@
+const { NODE_ENV, JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
-
-const SECRET_KEY = 'very_secret';
 
 const throwUnauthorizedError = () => {
   const err = new Error('Авторизуйтесь для доступа');
@@ -20,7 +19,7 @@ const isAuthorized = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, SECRET_KEY);
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (e) {
     throwUnauthorizedError();
   }

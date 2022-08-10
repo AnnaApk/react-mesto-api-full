@@ -1,4 +1,3 @@
-// const SECRET_KEY = 'very_secret';
 const { NODE_ENV, JWT_SECRET } = process.env;
 const SOLT = 10;
 
